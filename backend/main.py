@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, Form
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from PyPDF2 import PdfReader
 from skills import SKILLS
@@ -12,6 +12,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -62,7 +63,7 @@ def extract_skills(text):
 
 
 @app.post("/analyze/")
-async def analyze_resume(file: UploadFile, job_desc: str = Form(...)):
+async def analyze_resume(file: UploadFile = File(...), job_desc: str = Form(...)):
     resume_text = extract_text_from_pdf(file.file)
 
     score = match_resume(resume_text, job_desc)
