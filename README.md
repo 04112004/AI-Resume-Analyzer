@@ -76,3 +76,8 @@ npm run dev
 Frontend will run at:
 
 http://localhost:5173
+
+## 🚀 Live Demo
+🔗 https://ai-resume-analyzer-nine-blush.vercel.app
+
+
