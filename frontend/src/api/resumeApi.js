@@ -6,7 +6,7 @@ export const analyzeResume = async (resume, jobDesc) => {
   formData.append("job_desc", jobDesc);
 
   const response = await axios.post(
-    "https://ai-resume-analyzer-backend-kqgq.onrender.com/analyze/",
+    "https://ai-resume-analyzer-backend-kggq.onrender.com/analyze/",
     formData
   );
 
